@@ -5,6 +5,7 @@
 #importar librerias
 import random
 import time
+from colorama import Fore, Back, Style
 
 
 #Diccionario de preguntas y respuestas fáciles
@@ -244,7 +245,7 @@ preguntas_respuestas_dificil = {
 def mostrar_mensaje_bienvenida():
 
     print("¡Bienvenido al Juego de Preguntas y Respuestas!")
-    print("\033[96m")  # Cambia el color del texto a cian
+    print(Fore.CYAN)
     print(""" 
     ███    ███ ██    ██      ██ ███████ ██████  ███████ ███████     ███████ ███    ██     ██       █████      ███    ███ ██    ██ ███████ ██  ██████  █████  
     ████  ████ ██    ██      ██ ██      ██   ██ ██      ██          ██      ████   ██     ██      ██   ██     ████  ████ ██    ██ ██      ██ ██      ██   ██ 
@@ -252,9 +253,9 @@ def mostrar_mensaje_bienvenida():
     ██  ██  ██ ██    ██ ██   ██ ██      ██   ██ ██           ██     ██      ██  ██ ██     ██      ██   ██     ██  ██  ██ ██    ██      ██ ██ ██      ██   ██ 
     ██      ██  ██████   █████  ███████ ██   ██ ███████ ███████     ███████ ██   ████     ███████ ██   ██     ██      ██  ██████  ███████ ██  ██████ ██   ██ 
     """)
-    print("\033[0m")  # Reset color
+    print(Style.RESET_ALL)  # Reset color
     
-    print("\033[1m Reglas del juego:\033[0m")
+    print(Style.BRIGHT + "Reglas del juego:" + Style.RESET_ALL)
     print(""" 
     """)
     print("1. Responde las preguntas correctamente para ganar puntos.")
@@ -327,7 +328,7 @@ def imprimir_lluvia():
 #Funcion para imprimir mensaje de respuesta correcta 
 def imprimir_correcto():
     imprimir_confeti()
-    print("\033[92m") 
+    print(Fore.GREEN)  # Cambiar a color verde
     print("""
  ██████  ██████  ██████  ██████  ███████  ██████ ████████  ██████  ██ 
 ██      ██    ██ ██   ██ ██   ██ ██      ██         ██    ██    ██ ██ 
@@ -335,13 +336,13 @@ def imprimir_correcto():
 ██      ██    ██ ██   ██ ██   ██ ██      ██         ██    ██    ██    
  ██████  ██████  ██   ██ ██   ██ ███████  ██████    ██     ██████  ██ 
 """)
-    print("\033[0m")  # Resetear color
+    print(Style.RESET_ALL)  # Resetear color
     imprimir_confeti()
 
-#Funcion para imprimir mensaje de respuesta correcta
+#Funcion para imprimir mensaje de respuesta incorrecta
 def imprimir_incorrecto():
     imprimir_lluvia()
-    print("\033[91m")  # Cambiar a color rojo
+    print(Fore.RED)  # Cambiar a color rojo
     print("""
 ██ ███    ██  ██████  ██████  ██████  ██████  ███████  ██████ ████████  ██████  
 ██ ████   ██ ██      ██    ██ ██   ██ ██   ██ ██      ██         ██    ██    ██ 
@@ -349,100 +350,24 @@ def imprimir_incorrecto():
 ██ ██  ██ ██ ██      ██    ██ ██   ██ ██   ██ ██      ██         ██    ██    ██ 
 ██ ██   ████  ██████  ██████  ██   ██ ██   ██ ███████  ██████    ██     ██████   
 """)
-    print("\033[0m")  # Resetear color
+    print(Style.RESET_ALL)  # Resetear color
     imprimir_lluvia()
 #3. Utiliza un bucle `while` para hacer preguntas hasta que el jugador responda un número específico de preguntas correctamente
 #  o alcance un número máximo de respuestas incorrectas.
 
 
-def jugar_dificil():
-    print("¡Comencemos el juego \n")
-    print("\033[93m")
-    print("""
-    ███    ██ ██ ██    ██ ███████ ██          ██████  ██ ███████ ██  ██████ ██ ██      
-    ████   ██ ██ ██    ██ ██      ██          ██   ██ ██ ██      ██ ██      ██ ██      
-    ██ ██  ██ ██ ██    ██ █████   ██          ██   ██ ██ █████   ██ ██      ██ ██      
-    ██  ██ ██ ██  ██  ██  ██      ██          ██   ██ ██ ██      ██ ██      ██ ██      
-    ██   ████ ██   ████   ███████ ███████     ██████  ██ ██      ██  ██████ ██ ███████ 
-    """)                                                                            
-    print("\033[0m")                                                                                   
-    print("¡Vas a por todas! ¡Sorpréndeme!")
-    print("Recuerda que tienes 3 intentos para responder cada pregunta.")
-    print("Responde correctamente a 5 preguntas para ganar o responde incorrectamente a 3 preguntas para perder.")
-    print("¡Buena suerte!")
-    correctas = 0
-    incorrectas = 0 
-    while correctas < 5 or incorrectas == 3:
-        intentos = 0
-        if incorrectas == 3:
-            print("\n¡Lo siento!. Has alcanzado el número máximo de respuestas incorrectas. Fin del juego.")
-            imprimir_lluvia()
-            print("\033[35m") 
-            print("""
-██ ███    ██ ████████ ███████ ███    ██ ████████  █████  ██       ██████      ██████  ███████     ███    ██ ██    ██ ███████ ██    ██  ██████  
-██ ████   ██    ██    ██      ████   ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ████   ██ ██    ██ ██      ██    ██ ██    ██ 
-██ ██ ██  ██    ██    █████   ██ ██  ██    ██    ███████ ██      ██    ██     ██   ██ █████       ██ ██  ██ ██    ██ █████   ██    ██ ██    ██ 
-██ ██  ██ ██    ██    ██      ██  ██ ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ██  ██ ██ ██    ██ ██       ██  ██  ██    ██ 
-██ ██   ████    ██    ███████ ██   ████    ██    ██   ██ ███████  ██████      ██████  ███████     ██   ████  ██████  ███████   ████    ██████                                                                                                                                
-                 """)                                                                                    
-            print("\033[0m")  
-            imprimir_lluvia()
-            break
-        pregunta, respuesta = seleccionar_pregunta(preguntas_respuestas_dificil)
-        print("\033[1m")  # Cambiar a negrita
-        print(pregunta)
-        print("\033[0m")  # Resetear estilo
-        respuesta_usuario = input("Tu respuesta: ")
-        if respuesta_usuario.lower() == "salir":
-            print("\nGracias por jugar. ¡Nos vemos a la próxima!")
-            break
-        if respuesta_usuario.lower() == respuesta.lower():
-            imprimir_correcto()
-            correctas += 1
-        else:
-            #intentos += 1
-            while intentos < 2 and respuesta_usuario.lower() != respuesta.lower():
-                print("\033[35m")
-                print("\nRespuesta incorrecta. Intenta de nuevo.")
-                print("\033[0m")
-                respuesta_usuario = input("Tu respuesta: ")
-                intentos += 1
-            incorrectas += 1
-            imprimir_incorrecto()
-            print(f"\nLa respuesta correcta es:{respuesta}")
-            if respuesta_usuario.lower() == "salir":
-                print("\nGracias por jugar. ¡Nos vemos a la próxima!")
-                break
-            
-        print(f"\nRespuestas correctas: {correctas}, Respuestas incorrectas: {incorrectas}")
-        if correctas == 5:
-            print("\n¡Ganaste el juego!")
-            imprimir_confeti()
-            print("\033[32m") 
-            print("""
-                    ███████ ███████ ██      ██  ██████ ██ ████████  █████   ██████ ██  ██████  ███    ██ ███████ ███████ 
-                    ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ████   ██ ██      ██      
-                    █████   █████   ██      ██ ██      ██    ██    ███████ ██      ██ ██    ██ ██ ██  ██ █████   ███████ 
-                    ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ██  ██ ██ ██           ██ 
-                    ██      ███████ ███████ ██  ██████ ██    ██    ██   ██  ██████ ██  ██████  ██   ████ ███████ ███████ 
-                 """)                                                                                    
-            print("\033[0m")  
-            imprimir_confeti()                                                                                        
-        
-
-
 
 def jugar_facil():
     print("¡Comencemos el juego \n")
-    print("\033[95m")
+    print(Fore.MAGENTA)
     print("""
     ███    ██ ██ ██    ██ ███████ ██          ███████  █████   ██████ ██ ██      
     ████   ██ ██ ██    ██ ██      ██          ██      ██   ██ ██      ██ ██      
     ██ ██  ██ ██ ██    ██ █████   ██          █████   ███████ ██      ██ ██      
     ██  ██ ██ ██  ██  ██  ██      ██          ██      ██   ██ ██      ██ ██      
     ██   ████ ██   ████   ███████ ███████     ██      ██   ██  ██████ ██ ███████ 
-    """)                                                                            
-    print("\033[0m") 
+    """)
+    print(Style.RESET_ALL)
     print("Recuerda que tienes 3 intentos para responder cada pregunta.")
     print("Responde correctamente a 5 preguntas para ganar o responde incorrectamente a 3 preguntas para perder.")
     print("¡Buena suerte!")
@@ -453,15 +378,15 @@ def jugar_facil():
         if incorrectas == 3:
             print("¡\nLo siento!. Has alcanzado el número máximo de respuestas incorrectas. Fin del juego.")
             imprimir_lluvia()
-            print("\033[35m") 
+            print(Style.MAGENTA)
             print("""
 ██ ███    ██ ████████ ███████ ███    ██ ████████  █████  ██       ██████      ██████  ███████     ███    ██ ██    ██ ███████ ██    ██  ██████  
 ██ ████   ██    ██    ██      ████   ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ████   ██ ██    ██ ██      ██    ██ ██    ██ 
 ██ ██ ██  ██    ██    █████   ██ ██  ██    ██    ███████ ██      ██    ██     ██   ██ █████       ██ ██  ██ ██    ██ █████   ██    ██ ██    ██ 
 ██ ██  ██ ██    ██    ██      ██  ██ ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ██  ██ ██ ██    ██ ██       ██  ██  ██    ██ 
 ██ ██   ████    ██    ███████ ██   ████    ██    ██   ██ ███████  ██████      ██████  ███████     ██   ████  ██████  ███████   ████    ██████                                                                                                                                
-                 """)                                                                                    
-            print("\033[0m")  
+                 """)
+            print(Style.RESET_ALL)
             imprimir_lluvia()
             break
         pregunta, respuesta = seleccionar_pregunta(preguntas_opciones_facil)
@@ -494,17 +419,17 @@ def jugar_facil():
         if correctas == 5:
             print("\n¡Ganaste el juego!")
             imprimir_confeti()
-            print("\033[32m") 
+            print(Fore.GREEN)
             print("""
                     ███████ ███████ ██      ██  ██████ ██ ████████  █████   ██████ ██  ██████  ███    ██ ███████ ███████ 
                     ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ████   ██ ██      ██      
                     █████   █████   ██      ██ ██      ██    ██    ███████ ██      ██ ██    ██ ██ ██  ██ █████   ███████ 
                     ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ██  ██ ██ ██           ██ 
                     ██      ███████ ███████ ██  ██████ ██    ██    ██   ██  ██████ ██  ██████  ██   ████ ███████ ███████ 
-                 """)                                                                                    
-            print("\033[0m")  
-            imprimir_confeti()                        
-        
+                 """)
+            print(Style.RESET_ALL)
+            imprimir_confeti()
+
 
 def nivel_juego():
     nivel = input("Seleccione el nivel de dificultad (1 o 2)\n"
@@ -519,8 +444,90 @@ def nivel_juego():
         print("¡Qué lástima que no te atrevas! Hasta la próxima.")
     else:
         print("Opción no válida. Por favor, elige 1 o 2.")
+
+
+def jugar_dificil():
+    print("¡Comencemos el juego \n")
+    print(Style.BRIGHT + Fore.YELLOW)
+    print("""
+    ███    ██ ██ ██    ██ ███████ ██          ██████  ██ ███████ ██  ██████ ██ ██      
+    ████   ██ ██ ██    ██ ██      ██          ██   ██ ██ ██      ██ ██      ██ ██      
+    ██ ██  ██ ██ ██    ██ █████   ██          ██   ██ ██ █████   ██ ██      ██ ██      
+    ██  ██ ██ ██  ██  ██  ██      ██          ██   ██ ██ ██      ██ ██      ██ ██      
+    ██   ████ ██   ████   ███████ ███████     ██████  ██ ██      ██  ██████ ██ ███████ 
+    """)
+    print(Style.RESET_ALL)
+    print("¡Vas a por todas! ¡Sorpréndeme!")
+    print("Recuerda que tienes 3 intentos para responder cada pregunta.")
+    print("Responde correctamente a 5 preguntas para ganar o responde incorrectamente a 3 preguntas para perder.")
+    print("¡Buena suerte!")
+    correctas = 0
+    incorrectas = 0 
+    while correctas < 5 or incorrectas == 3:
+        intentos = 0
+        if incorrectas == 3:
+            print("\n¡Lo siento!. Has alcanzado el número máximo de respuestas incorrectas. Fin del juego.")
+            imprimir_lluvia()
+            print(Style.MAGENTA)
+            print("""
+██ ███    ██ ████████ ███████ ███    ██ ████████  █████  ██       ██████      ██████  ███████     ███    ██ ██    ██ ███████ ██    ██  ██████  
+██ ████   ██    ██    ██      ████   ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ████   ██ ██    ██ ██      ██    ██ ██    ██ 
+██ ██ ██  ██    ██    █████   ██ ██  ██    ██    ███████ ██      ██    ██     ██   ██ █████       ██ ██  ██ ██    ██ █████   ██    ██ ██    ██ 
+██ ██  ██ ██    ██    ██      ██  ██ ██    ██    ██   ██ ██      ██    ██     ██   ██ ██          ██  ██ ██ ██    ██ ██       ██  ██  ██    ██ 
+██ ██   ████    ██    ███████ ██   ████    ██    ██   ██ ███████  ██████      ██████  ███████     ██   ████  ██████  ███████   ████    ██████                                                                                                                                
+                 """)
+            print(Style.RESET_ALL)
+            imprimir_lluvia()
+            break
+        pregunta, respuesta = seleccionar_pregunta(preguntas_respuestas_dificil)
+        print(Style.BRIGHT)  # Cambiar a negrita
+        print(pregunta)
+        print(Style.RESET_ALL)  # Resetear estilo
+        respuesta_usuario = input("Tu respuesta: ")
+        if respuesta_usuario.lower() == "salir":
+            print("\nGracias por jugar. ¡Nos vemos a la próxima!")
+            break
+        if respuesta_usuario.lower() == respuesta.lower():
+            imprimir_correcto()
+            correctas += 1
+        else:
+            #intentos += 1
+            while intentos < 2 and respuesta_usuario.lower() != respuesta.lower():
+                print("\033[35m")
+                print("\nRespuesta incorrecta. Intenta de nuevo.")
+                print("\033[0m")
+                respuesta_usuario = input("Tu respuesta: ")
+                intentos += 1
+            incorrectas += 1
+            imprimir_incorrecto()
+            print(f"\nLa respuesta correcta es:{respuesta}")
+            if respuesta_usuario.lower() == "salir":
+                print("\nGracias por jugar. ¡Nos vemos a la próxima!")
+                break
+            
+        print(f"\nRespuestas correctas: {correctas}, Respuestas incorrectas: {incorrectas}")
+        if correctas == 5:
+            print("\n¡Ganaste el juego!")
+            imprimir_confeti()
+            print(Style.BRIGHT + Fore.GREEN)
+            print("""
+                    ███████ ███████ ██      ██  ██████ ██ ████████  █████   ██████ ██  ██████  ███    ██ ███████ ███████ 
+                    ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ████   ██ ██      ██      
+                    █████   █████   ██      ██ ██      ██    ██    ███████ ██      ██ ██    ██ ██ ██  ██ █████   ███████ 
+                    ██      ██      ██      ██ ██      ██    ██    ██   ██ ██      ██ ██    ██ ██  ██ ██ ██           ██ 
+                    ██      ███████ ███████ ██  ██████ ██    ██    ██   ██  ██████ ██  ██████  ██   ████ ███████ ███████ 
+                 """)
+            print(Style.RESET_ALL)
+            imprimir_confeti()
+
+
+
+
+
+
+
 def jugar():
     mostrar_mensaje_bienvenida()
     nivel_juego()
-    
+   
 jugar()
