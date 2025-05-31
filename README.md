@@ -20,7 +20,7 @@ Es un juego en el que se hacen preguntas sobre una variedad de temas y los jugad
 
 ## Tecnologías usadas
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 Librerías: random, datetime.
 
