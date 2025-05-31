@@ -24,7 +24,7 @@ Es un juego en el que se hacen preguntas sobre una variedad de temas y los jugad
 
 Librerías: random, datetime.
 
-https://www.creativefabrica.com/es/tools/ascii-art-generator/?         text=BIENVENID%40+A+JUEGOS+CLASICOS
+https://www.creativefabrica.com/es/tools/ascii-art-generator/
 
 ## Instrucciones de uso
 
