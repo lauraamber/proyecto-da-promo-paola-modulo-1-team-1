@@ -30,7 +30,7 @@ https://www.creativefabrica.com/es/tools/ascii-art-generator/
 ## Instrucciones de uso
 
 1. Clona el repositorio.
-2. [Ejecuta el archivo principal](../notebooks/juegos_clasicos.ipynb.)
+2. Ejecuta el archivo principal: [link](https://github.com/lauraamber/proyecto-da-promo-paola-modulo-1-team-1/blob/main/notebooks/juegos_clasicos.ipynb)
 3. Sigue las instrucciones en pantalla.
 
 ## Autoras
