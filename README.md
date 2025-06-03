@@ -18,11 +18,37 @@ Es un juego de adivinanzas en el que un jugador elige una palabra y el otro juga
     
 Es un juego en el que se hacen preguntas sobre una variedad de temas y los jugadores deben responder correctamente para avanzar. Las preguntas pueden ser de diferentes categorías, como historia, ciencias, entretenimiento o cultura general. El objetivo del juego es responder la mayor cantidad de preguntas correctamente para ganar el juego. Este juego puede ser jugado de forma individual o en equipo y es una forma divertida de aprender y poner a prueba tus conocimientos.
 
+# Estructura del Repositorio
+```
+proyecto-da-promo-paola-modulo-1-team-1/
+├── .gitignore
+├── README.md
+├── data/
+│   └── palabras_ahorcado.txt
+├── notebooks/
+│   ├── ahorcada.ipynb
+│   ├── juegos_clasicos.ipynb
+│   ├── piedra-papel-tijera.ipynb
+│   └── preguntasyrespuestas.ipynb
+└── recursos/
+├── image-1.png
+├── image-2.png
+├── image-3.png
+├── image-4.png
+├── image-5.png
+├── image-6.png
+├── image-7.png
+├── image-8.png
+├── image-9.png
+├── image-10.png
+└── image.png
+```
+
 ## Tecnologías usadas
 
 [![forthebadge made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-Librerías: random, datetime.
+Librerías: random, datetime, getpass.
 
 Generador formato ascii: 
 https://www.creativefabrica.com/es/tools/ascii-art-generator/
@@ -51,36 +77,18 @@ Finalizado
 
 ## Capturas de pantalla
 
+![alt text](recursos/image.png)
 
-![alt text](image.png)
+![alt text](recursos/image-2.png)
 
-![alt text](image-2.png)
+![alt text](recursos/image-4.png)
 
-![alt text](image-4.png)
+![alt text](recursos/image-6.png)
 
-![alt text](image-6.png)
+![alt text](recursos/image-7.png)
 
-![alt text](image-7.png)
+![alt text](recursos/image-8.png)
 
-![alt text](image-8.png)
+![alt text](recursos/image-9.png)
 
-![alt text](image-9.png)
-
-![alt text](image-10.png)
-
-
-
-
-
-
-
-
-
-
-
-
-    
- 
-
-
-
+![alt text](recursos/image-10.png)
