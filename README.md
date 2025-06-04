@@ -1,6 +1,6 @@
 # Juegos Clásicos - NÜMI Studio
 
-![alt text](recursos/Portada.png)
+![alt text](recursos/Portada.PNG)
 
 Los juegos clásicos, son juegos transmitidos de generación en generación. .
 
